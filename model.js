@@ -1,9 +1,8 @@
 const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('a', 'root', 'ABcd1234', {
+const config = require('./database.json')
+const sequelize = new Sequelize(config.database, config.user, config.password, {
     host: 'localhost',
     dialect: 'mysql',
-
     pool: {
         max: 1,
         min: 1,
@@ -24,7 +23,5 @@ module.exports= {
         title: Sequelize.STRING,
         content: Sequelize.STRING
     })
-
-
 }
 
