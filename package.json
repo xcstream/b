@@ -1,0 +1,23 @@
+{
+  "name": "b",
+  "version": "1.0.0",
+  "description": "another test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcstream/b.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xcstream/b/issues"
+  },
+  "homepage": "https://github.com/xcstream/b#readme",
+  "dependencies": {
+    "mysql2": "^1.5.0",
+    "sequelize": "^4.22.6"
+  }
+}

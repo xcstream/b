@@ -20,8 +20,6 @@ module.exports= {
         birthday: Sequelize.DATE,
         password: Sequelize.STRING
     }),
-
-
     ArticleComment:sequelize.define('ArticleComment', {
         title: Sequelize.STRING,
         content: Sequelize.STRING
