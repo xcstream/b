@@ -15,7 +15,7 @@
         -moz-box-shadow:7px 7px 15px #333333; -webkit-box-shadow:7px 7px 15px #333333; box-shadow:7px 7px 15px #333333;
     }
 </style>
-<div style="display: flex;justify-content: center ;margin-top:100px">
+<div style="display: flex;justify-content: center ;margin-top:150px">
     <div id="card">
     <span></span>
     <el-card  :style="{
@@ -76,7 +76,7 @@ $(document).mousemove(function(e){
     xx =(30*( e.pageX/$(window).width()-0.5))
     yy =-(30*( e.pageY/$(window).height()-0.5))
 
-    $('#card').css('transform',`perspective(600px) rotateX(${yy}deg) rotateY(${xx}deg)` )
+    $('#card').css('transform',`perspective(800px) rotateX(${yy}deg) rotateY(${xx}deg)` )
 //    $("span").text(xx+ ' '+yy);
 });
 
