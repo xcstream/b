@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.3/vue.min.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.0.4/theme-chalk/index.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/element-ui/2.0.4/index.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@0.2.3/dist/bubbly-bg.js"></script>
+</head>
+<body>
+<div style="  display: flex;justify-content: center ;margin-top:100px">
+    <el-card style="width:400px">
+        <div>
+            登录
+        </div>
+        <div>
+            <el-input v-model="username"
+                      style="width:340px;margin:10px">
+                <template slot="prepend">
+                    <i class="el-icon-message"></i>
+                </template>
+            </el-input>
+        </div>
+
+        <div>
+            <el-input v-model="password" type="password"
+                      style="width:340px;margin:10px">
+                <template slot="prepend">
+                    <i class="el-icon-more"></i>
+                </template>
+            </el-input>
+        </div>
+        <div>
+            <el-button @click="login" style="width:130px" style="padding:10px;width:300px">
+                <i class="el-icon-circle-check"></i>
+            </el-button>
+        </div>
+    </el-card>
+</div>
+<script>
+window.vm = new Vue({
+    el:'body>div',
+    data:{
+        username:'',
+        password:''
+    },
+    methods:{
+        login:function () {
+            $.post('/api/login', {
+                    username:vm.username,
+                    password:vm.password
+                }
+
+            ).then(function (x) {
+                console.log(x)
+            })
+        }
+    }
+})
+
+</script>
+<script>bubbly();</script>
+</body>
+</html>

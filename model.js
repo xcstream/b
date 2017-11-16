@@ -12,6 +12,9 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
     timezone: '+08:00',
 });
 
+
+
+
 module.exports= {
     sequelize:sequelize,
     User:sequelize.define('user', {
@@ -20,6 +23,10 @@ module.exports= {
         password: Sequelize.STRING
     }),
     ArticleComment:sequelize.define('ArticleComment', {
+        title: Sequelize.STRING,
+        content: Sequelize.STRING
+    }),
+    Article:sequelize.define('Article',{
         title: Sequelize.STRING,
         content: Sequelize.STRING
     })

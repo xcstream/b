@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/xcstream/b#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "mysql2": "^1.5.0",
     "sequelize": "^4.22.6"
   }
