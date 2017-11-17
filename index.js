@@ -33,9 +33,8 @@ app.use('/api/login',(req,res)=>{
 })
 
 app.use('/api/logout',(req,res)=>{
-    var username = req.body.username
-    var password = req.body.password
     req.session.username = null
+    res.send({code:200})
 })
 
 
@@ -45,23 +44,7 @@ app.use('/api/info',(req,res)=>{
     }else{
         res.send({code:403,username:null})
     }
-
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(4000)
 console.log('http://localhost:4000')

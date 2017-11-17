@@ -17,9 +17,13 @@
 </style>
 <div>
 
-    <div id="loginbtn">
-        <el-button @click="gotologin" style="float:right">
+    <div id="loginbtn" style="float:right">
+        <span v-if="username">欢迎{{username}}</span>
+        <el-button @click="gotologin" v-if="!username">
             登录
+        </el-button>
+        <el-button @click="gotologout">
+            退出
         </el-button>
     </div>
 
@@ -29,20 +33,31 @@
     window.vm = new Vue({
         el:'body>div',
         data:{
-
+            username:null
         },
         methods:{
             gotologin:function () {
                 window.location.href = '/login.html'
+            },
+            gotologout:function () {
+                $.post('/api/logout', {
+                        username:vm.username,
+                        password:vm.password
+                    }
+                ).then(function (x) {
+                    console.log(x)
+                    if(x.code == 200){
+                        window.location.reload()
+                    }
+                })
             }
         }
     })
 
 
     $.post('/api/info').then(function (x) {
-        console.log(x)
+        vm.username=x.username
         if(x.username){
-
         }else{
 
         }
