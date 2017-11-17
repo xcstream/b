@@ -22,7 +22,7 @@
         <el-button @click="gotologin" v-if="!username">
             登录
         </el-button>
-        <el-button @click="gotologout">
+        <el-button @click="gotologout" v-else>
             退出
         </el-button>
     </div>
