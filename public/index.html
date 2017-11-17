@@ -7,7 +7,7 @@
     <link href="https://cdn.bootcss.com/element-ui/2.0.4/theme-chalk/index.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/element-ui/2.0.4/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@0.2.3/dist/bubbly-bg.js"></script>
-
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 </head>
 <body>
 
@@ -17,7 +17,14 @@
 
 </div>
 <script>
-    window.location.href='login.html'
+    $.post('/api/info').then(function (x) {
+        console.log(x)
+        if(x.username){
+
+        }else{
+
+        }
+    })
 </script>
 <script>bubbly();</script>
 
