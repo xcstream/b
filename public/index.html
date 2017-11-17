@@ -14,7 +14,19 @@
     #loginbtn:hover{
         transform:perspective(800px) rotateX(20deg) rotateY(20deg))
     }
+
+    #menu{
+        transition:background-color 0.5s;
+        background-color:rgba(255, 255, 255, 0.30)
+    }
+
+    #menu:hover{
+        background-color:rgba(255, 255, 255, 0.88)
+    }
+
+
 </style>
+
 <div>
 
     <div id="loginbtn" style="float:right">
@@ -27,10 +39,12 @@
         </el-button>
     </div>
 
+
+
     <div v-if="username" style="display: flex;justify-content: flex-start;">
-        <div id="card" style="padding: 10px;">
+        <div id="card" style="padding: 10px; " >
             <span></span>
-            <el-card  :style="{}" >
+            <el-card id="menu"  style="" >
                 <div href="#" v-for="i in [1,2,3,4,5,6,7,8,9,10,11,12,13]">
                     <el-button type="text" @click="dialogVisible = true">菜单{{i}}
                     </el-button>
