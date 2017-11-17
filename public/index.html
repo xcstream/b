@@ -13,10 +13,28 @@
 
 <div>
 
-
+    <div>
+        <el-button @click="gotologin">
+            登录
+        </el-button>
+    </div>
 
 </div>
 <script>
+
+    window.vm = new Vue({
+        el:'body>div',
+        data:{
+
+        },
+        methods:{
+            gotologin:function () {
+                window.location.href = '/login.html'
+            }
+        }
+    })
+
+
     $.post('/api/info').then(function (x) {
         console.log(x)
         if(x.username){
