@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>blog</title>
+    <title>_(:зゝ∠)_趴一会</title>
     <script src="https://cdn.bootcss.com/vue/2.5.3/vue.min.js"></script>
     <link href="https://cdn.bootcss.com/element-ui/2.0.4/theme-chalk/index.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/element-ui/2.0.4/index.js"></script>
@@ -13,6 +13,8 @@
 <style>
     #card{
         -moz-box-shadow:7px 7px 15px #333333; -webkit-box-shadow:7px 7px 15px #333333; box-shadow:7px 7px 15px #333333;
+    }
+    .pop{
     }
 </style>
 <div style="display: flex;justify-content: center ;margin-top:150px">
@@ -25,7 +27,7 @@
             登录
         </div>
         <div>
-            <el-input v-model="username"
+            <el-input v-model="username" class="pop"
                       style="width:340px;margin:10px">
                 <template slot="prepend">
                     <i class="el-icon-message"></i>
@@ -34,7 +36,7 @@
         </div>
 
         <div>
-            <el-input v-model="password" type="password"
+            <el-input v-model="password" class="pop" type="password"
                       style="width:340px;margin:10px">
                 <template slot="prepend">
                     <i class="el-icon-more"></i>
@@ -42,7 +44,7 @@
             </el-input>
         </div>
         <div>
-            <el-button @click="login" style="width:130px;margin:10px 10px 20px 220px; padding:10px">
+            <el-button @click="login" class="pop" style="width:130px;margin:10px 10px 20px 220px; padding:10px">
                 gogogo<i class="el-icon-circle-check"></i>
             </el-button>
         </div>
@@ -55,8 +57,7 @@ window.vm = new Vue({
     el:'body>div',
     data:{
         username:'',
-        password:'',
-        calcss:'perspective(600px) rotateX(5deg)'
+        password:''
     },
     methods:{
         login:function () {
@@ -64,9 +65,11 @@ window.vm = new Vue({
                     username:vm.username,
                     password:vm.password
                 }
-
             ).then(function (x) {
                 console.log(x)
+                if(x.code == 200){
+                    window.location.href = '/'
+                }
             })
         }
     }
@@ -75,7 +78,6 @@ window.vm = new Vue({
 $(document).mousemove(function(e){
     xx =(30*( e.pageX/$(window).width()-0.5))
     yy =-(30*( e.pageY/$(window).height()-0.5))
-
     $('#card').css('transform',`perspective(800px) rotateX(${yy}deg) rotateY(${xx}deg)` )
 //    $("span").text(xx+ ' '+yy);
 });

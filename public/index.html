@@ -2,22 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>blog</title>
+    <title>_(:зゝ∠)_趴一会</title>
     <script src="https://cdn.bootcss.com/vue/2.5.3/vue.min.js"></script>
     <link href="https://cdn.bootcss.com/element-ui/2.0.4/theme-chalk/index.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/element-ui/2.0.4/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@0.2.3/dist/bubbly-bg.js"></script>
-
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 </head>
 <body>
+<style>
+    #loginbtn:hover{
+        transform:perspective(800px) rotateX(20deg) rotateY(20deg))
+    }
+
+    #menu{
+        transition:background-color 0.5s;
+        background-color:rgba(255, 255, 255, 0.30)
+    }
+
+    #menu:hover{
+        background-color:rgba(255, 255, 255, 0.88)
+    }
+
+
+</style>
 
 <div>
 
+    <div id="loginbtn" style="float:right">
+        <span v-if="username">欢迎{{username}}</span>
+        <el-button @click="gotologin" v-if="!username">
+            登录
+        </el-button>
+        <el-button @click="gotologout" v-else>
+            退出
+        </el-button>
+    </div>
+
+
+
+    <div v-if="username" style="display: flex;justify-content: flex-start;">
+        <div id="card" style="padding: 10px; " >
+            <span></span>
+            <el-card id="menu"  style="" >
+                <div href="#" v-for="i in [1,2,3,4,5,6,7,8,9,10,11,12,13]">
+                    <el-button type="text" @click="dialogVisible = true">菜单{{i}}
+                    </el-button>
+                </div>
+
+            </el-card>
+        </div>
+
+        <el-card style="width: 80%;height:600px;margin: 60px;justify-content: center">
+            <div style="width:300px;background: red;overflow:scroll">
+                {{rnd}}
+            </div>
+        </el-card>
+
+    </div>
 
 
 </div>
 <script>
-    window.location.href='login.html'
+
+    window.vm = new Vue({
+        el:'body>div',
+        data:{
+            username:null,
+            rnd:''
+        },
+        methods:{
+            gotologin:function () {
+                window.location.href = '/login.html'
+            },
+            gotologout:function () {
+                $.post('/api/logout', {
+                        username:vm.username,
+                        password:vm.password
+                    }
+                ).then(function (x) {
+                    console.log(x)
+                    if(x.code == 200){
+                        vm.username = null
+                    }
+                })
+            }
+        }
+    })
+
+    for(var i = 0;i<1231;i++){
+        vm.rnd += Math.random()
+    }
+    $.post('/api/info').then(function (x) {
+        vm.username=x.username
+        if(x.username){
+        }else{
+
+        }
+    })
 </script>
 <script>bubbly();</script>
 
